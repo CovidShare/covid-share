@@ -1,0 +1,17 @@
+.ExploreButton {
+  background-color: #ffffff;
+  border: 2px solid #dee3e3;
+  padding: 14px 30px;
+  font-size: large;
+  border-radius: 10px;
+}
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 100px;
+
+  background-color: #dee3e3;
+}
