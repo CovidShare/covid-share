@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import AuthService from '../services/AuthService'
-//import Message from '../Components/Message';
+import Message from '../components/Message';
 import { AuthContext } from '../context/AuthContext';
 
 const Login = (props) => {
+    const authContext = useContext(AuthContext);
     const [user, setUser] = useState({ username: "", password: "" });
     const [message, setMessage] = useState(null);
-    const authContext = useContext(AuthContext);
 
     const onChangeHandler = (e) => {
         setUser({...user, [e.target.name] : e.target.value});
@@ -36,7 +36,7 @@ const Login = (props) => {
                     name="username"
                     onChange={onChangeHandler}
                     className="form-control"
-                    placeHolder="Enter Email" />
+                    placeHolder="Enter Username" />
 
                 <label htmlFor="password" classname="sr-only"/>
                 <input type="password"
@@ -49,7 +49,7 @@ const Login = (props) => {
                     type="submit">Log in</button>
             </form>
 
-            {/*{ message ? <Message message = {message}/> : null }*/}
+            { message ? <Message message = {message}/> : null }
         </div>
     );
 }

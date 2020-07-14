@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from "./components/Home";
 import Login from "./components/Login";
-//import Register from "./Components/Register";
+import Register from "./components/Register";
 //import Todos from "./Components/Todos";
 //import Admin from "./Components/Admin";
 //import PrivateRoute from "./hocs/PrivateRoute";
@@ -23,7 +23,8 @@ function App() {
     <Router>
       <Navbar/>
       <Route exact path="/home" component = {Home}/>
-      <Route exact path="/auth/login" component = {Login}/>
+      <Route path="/auth/login" component = {Login}/>
+      <Route path="/auth/register" component = {Register}/>
     </Router>
   );
 }
