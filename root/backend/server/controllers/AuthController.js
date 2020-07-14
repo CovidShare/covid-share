@@ -45,15 +45,16 @@ const signToken = userID => {
     }, config.jwt.secretKey, { expiresIn: "1h" });
 }
 
+
 export const login = (req, res) => {
     if (req.isAuthenticated()) {
         // req.username comes from passport that is ataching the user object to the req obj
-        const { _id, email, username, privilege } = req.user;
+        const { _id, username, privilege } = req.user; 
         const token = signToken(_id); // Create jwt token since we signed in
         res.cookie('access_token', token, { httpOnly: true, sameSite: true });
         // httpOnly: Set that the client side cannot change this cookie.. prevent cross-site scripting attack
         // sameSite: prevent agains croos-site request forgery attacks (protect token not to be stolen?)
-        res.status(200).json({ isAuthenticated: true, user: { email, username, privilege } }); // ADD token **
+        res.status(200).json({isAuthenticated: true, user: {username, privilege}});
     }
 }
 

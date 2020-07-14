@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import AuthService from '../services/AuthServices';
+import AuthService from '../services/AuthService';
 
 // Context is a global state for the whole app
 // It gives a provider and a consumer

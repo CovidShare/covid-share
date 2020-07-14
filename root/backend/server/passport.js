@@ -34,6 +34,21 @@ passport.use(new JwtStrategy({
 
 // loginOption as usernameField to logIn with username, email or mobile
 export const LocalStrategy = passportLocal.Strategy;
+// LocalStrategy(verifyCallback(username, password, doneCallback))
+passport.use(new LocalStrategy( (username, password, done) => {
+    User.findOne({username}, (err, user) => {
+        // done(error, boolean if found username) 
+        if (err)
+            return done(err); // Query error
+        if (!user)
+            return done(null, false); // no user exists
+        user.comparePassword(password, done); // Check if password is correct (from User.js)
+    });
+}));
+
+/* REGISTER WITH EMAIL - working on it 
+
+export const LocalStrategy = passportLocal.Strategy;
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
@@ -44,8 +59,10 @@ passport.use(new LocalStrategy({
             if (err)
                 return done(err);
             if (!user)
-                return done(null, false); // No user exists
+                return done(null, false);
 
             user.comparePassword(password, done); // Check if password is correct (from UserModel)
     });
 }));
+
+*/
