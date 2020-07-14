@@ -17,15 +17,15 @@ const cookieExtractor = req => {
 // Authorization (to protect a resource/endpoint)
 const JwtStrategy = passportJwt.Strategy;
 passport.use(new JwtStrategy({
-    jwtFromRequest: cookieExtractor, // jwtFromRequest : function to extract cookie
-    secretOrKey: config.jwt.secretKey // Key used to sign token to verify if token is legit
+    jwtFromRequest: cookieExtractor,
+    secretOrKey: config.jwt.secretKey // Key used to sign token to check if token is legit when extracted
 }, (payload, done) => {
-    // payload is basically the data within token (payload.sub is the PK of the user)
-    User.findById({ _id: payload.sub }, (err, user) => {
+    // payload is basically the data of the cookie (token)
+    User.findById({_id: payload.sub}, (err, user) => {
         if (err)
-            return done(err, false);
+            return done(err, false); 
         if (user)
-            return done(null, user); // If user not null, then return user (no error and pass user) 
+            return done(null, user); // If user not null, no error and pass user 
         else
             return done(null, false); // No error, but no user with that primary key
     });
@@ -45,6 +45,8 @@ passport.use(new LocalStrategy( (username, password, done) => {
         user.comparePassword(password, done); // Check if password is correct (from User.js)
     });
 }));
+
+
 
 /* REGISTER WITH EMAIL - working on it 
 

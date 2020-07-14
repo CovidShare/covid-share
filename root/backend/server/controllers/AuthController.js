@@ -16,14 +16,10 @@ export const register = (req, res) => {
             }
             else {
                 const newUser = new User(newUserData);
-                console.log(newUser)
+                //console.log(newUser) // Testing purpose
                 newUser.save()
                     .then(user => {
-                        // After registering, it gets logged in
-                        const { _id, email, username, privilege } = user;
-                        const token = signToken(_id); // Create jwt token since we signed in
-                        res.cookie('access_token', token, { httpOnly: true, sameSite: true });
-                        res.status(201).json({isAuthenticated: true, user: { email, username, privilege }, message: { messageBody: "Account succesfully created & logged in", messageError: false } });
+                        res.status(201).json({ message: { messageBody: "Account succesfully created", messageError: false } });
                     })
                     .catch(err => {
                         console.log(err);
@@ -37,6 +33,7 @@ export const register = (req, res) => {
 }
 
 
+
 // Returns the actual JWT token. Do not send sensitive data (private, etc)
 const signToken = userID => {
     return JWT.sign({
@@ -45,16 +42,16 @@ const signToken = userID => {
     }, config.jwt.secretKey, { expiresIn: "1h" });
 }
 
-
+// ** TODO: we still need to add logging with email **
 export const login = (req, res) => {
     if (req.isAuthenticated()) {
         // req.username comes from passport that is ataching the user object to the req obj
-        const { _id, username, privilege } = req.user; 
+        const { _id, username, privilege } = req.user;
         const token = signToken(_id); // Create jwt token since we signed in
         res.cookie('access_token', token, { httpOnly: true, sameSite: true });
         // httpOnly: Set that the client side cannot change this cookie.. prevent cross-site scripting attack
         // sameSite: prevent agains croos-site request forgery attacks (protect token not to be stolen?)
-        res.status(200).json({isAuthenticated: true, user: {username, privilege}});
+        res.status(200).json({ isAuthenticated: true, user: { username, privilege } });
     }
 }
 
