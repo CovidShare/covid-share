@@ -13,3 +13,10 @@ In this web application we will provide information and statistics about the dis
 1) cd to backend folder and run ```npm start```
 2) cd to client/covid-share folder and run ```npm start```
 
+###### To commit:
+It is recommended to pull before commiting to ensure that your local copy is in sync with the remote repository.
+These are the steps I use (I don't know if they are 100% correct tho)
+1)  ```git add *FILES*```
+2)  ```git commit -m "commit message"```
+3)  ```git pull```
+4) ```git push origin master```
