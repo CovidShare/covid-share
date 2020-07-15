@@ -1,25 +1,25 @@
-import React, { useEffect } from "react";
-import "../styles/TwitterContainer.css";
+// TwitterContainer.js
+import React from "react";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 const TwitterContainer = () => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://platform.twitter.com/widgets.js";
-    document.getElementsByClassName("twitter-embed")[0].appendChild(script);
-  }, []);
-
   return (
-  <section className="twitterContainer">
+    <section className="twitterContainer">
       <div className="twitter-embed">
-        <a
-          className="twitter-timeline"
-          data-theme="light"
-          data-tweet-limit="1"
-          data-chrome="noheader nofooter noborders transparent"
-          href="https://https://twitter.com/CDCgov"
-        >
-          Tweets by @CDC
-        </a>
+        <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName="CDCemergency"
+          options={{
+            tweetLimit: "2",
+            width: "100%",
+            height: 200
+          }}
+          theme="light"
+          noHeader="true"
+          noBorders="true"
+          noFooter="true"
+          transparent="true"
+        ></TwitterTimelineEmbed>
       </div>
     </section>
   );

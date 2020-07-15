@@ -5,6 +5,7 @@ import logoN from "../assets/LogoNew.png";
 import TwitterContainer from "../components/TwitterContainer.js";
 import CDC from "../components/CDC.js";
 import { Container, Row, Col } from 'react-bootstrap';
+import TwitterTimelineEmbed from 'react-twitter-embed';
 
 
 const HomePage = (props) => {
