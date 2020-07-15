@@ -9,7 +9,7 @@ const TwitterContainer = () => {
   }, []);
 
   return (
-    <section className="twitterContainer">
+  <section className="twitterContainer">
       <div className="twitter-embed">
         <a
           className="twitter-timeline"
@@ -18,7 +18,7 @@ const TwitterContainer = () => {
           data-chrome="noheader nofooter noborders"
           href="https://https://twitter.com/CDCgov"
         >
-          Tweets by CDC
+          Tweets by @CDC
         </a>
       </div>
     </section>

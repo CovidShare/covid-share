@@ -20,7 +20,6 @@
   font-size: medium;
   border-radius: 10px;
 }
-
 .footer {
   color: white;
   background-color: #a6a6a6;
@@ -31,4 +30,18 @@
   align-self: flex-end;
   text-align: center;
   font-size: xx-large;
+}
+.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.col{
+  margin-top: 0px;
+  margin-bottom: -21px;
 }
