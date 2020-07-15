@@ -19,7 +19,7 @@ const HomePage = (props) => {
               <Col>
                 <CDC className="pls"></CDC>
               </Col>
-              <Col sm='auto'>
+              <Col xs='auto'>
                 <TwitterContainer></TwitterContainer>
               </Col>
             </Row>

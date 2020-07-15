@@ -13,9 +13,9 @@ const TwitterContainer = () => {
       <div className="twitter-embed">
         <a
           className="twitter-timeline"
-          data-theme="dark"
+          data-theme="light"
           data-tweet-limit="1"
-          data-chrome="noheader nofooter noborders"
+          data-chrome="noheader nofooter noborders transparent"
           href="https://https://twitter.com/CDCgov"
         >
           Tweets by @CDC
