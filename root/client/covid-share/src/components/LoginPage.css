@@ -1,0 +1,44 @@
+.formContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #dee3e3;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+}
+.loginContainer {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  background-color: #dee3e3;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+}
+.loginButton {
+  background-color: #a6a6a6;
+  border: 2px solid #a6a6a6;
+  padding: 14px 30px;
+  font-size: large;
+  border-radius: 10px;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+}
+.left {
+  display: flex;
+  flex: 1;
+  background-color: #dee3e3;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+}
