@@ -1,0 +1,53 @@
+.formContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #dee3e3;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.loginContainer {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  background-color: #dee3e3;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+}
+.loginButton {
+  background-color: #405353;
+  border: 2px solid #405353;
+  padding: 14px 30px;
+  color: white;
+  font-size: large;
+  border-radius: 10px;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+  align-self: center;
+}
+.form {
+  margin-left: 50px;
+}
+.name {
+  margin-left: 39px;
+}
+.email {
+  margin-left: 91px;
+}
+.username {
+  margin-left: 45px;
+}
+.form-group {
+  display: flex;
+  background-color: #dee3e3;
+  align-items: center;
+  flex-direction: column;
+}

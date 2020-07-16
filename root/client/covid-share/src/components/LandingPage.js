@@ -15,8 +15,9 @@ const LandingPage = (props) => {
         <br />
         create an interactive Coronavirus information center. Enjoy!
       </p>
-
-      <button className="ExploreButton">Explore!</button>
+      <a href="/home">
+        <button className="ExploreButton">Explore!</button>
+      </a>
     </div>
   );
 };

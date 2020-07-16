@@ -17,15 +17,15 @@ const cookieExtractor = req => {
 // Authorization (to protect a resource/endpoint)
 const JwtStrategy = passportJwt.Strategy;
 passport.use(new JwtStrategy({
-    jwtFromRequest: cookieExtractor, // jwtFromRequest : function to extract cookie
-    secretOrKey: config.jwt.secretKey // Key used to sign token to verify if token is legit
+    jwtFromRequest: cookieExtractor,
+    secretOrKey: config.jwt.secretKey // Key used to sign token to check if token is legit when extracted
 }, (payload, done) => {
-    // payload is basically the data within token (payload.sub is the PK of the user)
-    User.findById({ _id: payload.sub }, (err, user) => {
+    // payload is basically the data of the cookie (token)
+    User.findById({_id: payload.sub}, (err, user) => {
         if (err)
-            return done(err, false);
+            return done(err, false); 
         if (user)
-            return done(null, user); // If user not null, then return user (no error and pass user) 
+            return done(null, user); // If user not null, no error and pass user 
         else
             return done(null, false); // No error, but no user with that primary key
     });
@@ -33,6 +33,23 @@ passport.use(new JwtStrategy({
 
 
 // loginOption as usernameField to logIn with username, email or mobile
+export const LocalStrategy = passportLocal.Strategy;
+// LocalStrategy(verifyCallback(username, password, doneCallback))
+passport.use(new LocalStrategy( (username, password, done) => {
+    User.findOne({username}, (err, user) => {
+        // done(error, boolean if found username) 
+        if (err)
+            return done(err); // Query error
+        if (!user)
+            return done(null, false); // no user exists
+        user.comparePassword(password, done); // Check if password is correct (from User.js)
+    });
+}));
+
+
+
+/* REGISTER WITH EMAIL - working on it 
+
 export const LocalStrategy = passportLocal.Strategy;
 passport.use(new LocalStrategy({
     usernameField: 'email',
@@ -44,8 +61,10 @@ passport.use(new LocalStrategy({
             if (err)
                 return done(err);
             if (!user)
-                return done(null, false); // No user exists
+                return done(null, false);
 
             user.comparePassword(password, done); // Check if password is correct (from UserModel)
     });
 }));
+
+*/

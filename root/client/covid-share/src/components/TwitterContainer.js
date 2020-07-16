@@ -10,9 +10,9 @@ const TwitterContainer = () => {
           sourceType="profile"
           screenName="CDCemergency"
           options={{
-            tweetLimit: "5",
+            tweetLimit: "1",
             width: "100%",
-            height: 300
+            height: 300,
           }}
           theme="light"
           noHeader="true"
