@@ -1,18 +1,58 @@
-import React from "react";
-import NavBar from "../components/NavBar.js";
+import React , { useContext } from "react";
+import NavBar from "./NavBar.js";
 import "../styles/DonatePage.css";
 import logoN from "../assets/LogoNew.png";
 import TwitterContainer from "../components/TwitterContainer.js";
+import AuthService from '../services/AuthService';
+import { AuthContext } from '../context/AuthContext';
 
 import { Container, Row, Col } from "react-bootstrap";
 
 const DonatePage = (props) => {
+  const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
+
+  const onClickLogoutHandler = () => {
+    AuthService.logout().then(data => {
+      if (data.success) {
+        setUser(data.user);
+        setIsAuthenticated(false);
+        //history.push("/register") // ADDED to redirect logout to register
+      }
+    })
+  }
+
+  const unauthenticatedUser = () => {
+    return (
+      <>
+        <a href="/login">
+          <button className="logIn_logOut">Log In</button>
+        </a>
+
+        <a href="/register">
+          <button className="signUp">Sign Up</button>
+        </a>
+      </>
+    )
+  }
+
+  const authenticatedUser = () => {
+    return (
+      <button type="button"
+        className="logIn_logOut"
+        onClick={onClickLogoutHandler}>
+        Logout
+      </button>
+    )
+  }
+
+
+
   return (
     <div className="donate">
       <a href="/home">
         <img src={logoN} alt="logo" class="center" />
       </a>
-      <button className="logIn">Log In</button>
+      {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
       <NavBar></NavBar>
       <main>
         <Container fluid>

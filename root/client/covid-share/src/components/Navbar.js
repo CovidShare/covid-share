@@ -1,6 +1,7 @@
 import { Button, Form, FormControl } from "react";
 import React from "react";
 import * as ReactBootStrap from "react-bootstrap";
+
 const NavBar = (props) => {
   return (
     <div>
