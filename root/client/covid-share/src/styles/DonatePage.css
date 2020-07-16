@@ -1,0 +1,78 @@
+.donate {
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #dee3e3;
+  }
+.logIn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #a6a6a6;
+    color: white;
+    border: 2px solid #dee3e3;
+    padding: 14px 30px;
+    font-size: medium;
+    border-radius: 10px;
+  }
+.footer {
+    color: white;
+    background-color: #a6a6a6;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    position: relative;
+    bottom: 50;
+    align-self: flex-end;
+    text-align: center;
+    font-size: xx-large;
+  }
+.row {
+    margin-right: 15px;
+    margin-left: 15px;
+    background-color: #dee3e3;
+  }
+.col{
+    margin-top: 0px;
+    margin-bottom: -21px;
+    background-color: #dee3e3;
+  }
+.orgs{
+    text-align: justify;
+    border: 1px solid black;
+    background-color: #e6ffe6;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+.linkHead{
+    text-align: center;
+}
+.linkText{
+    color: rgb(20, 28, 150);
+    text-decoration: underline;
+    font-size: 24px;
+    font-weight: bold;
+}
+.pageHeader {
+    text-align: center;
+    
+}
+.logo1{
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 178px;
+}
+.logo2{
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 440px;
+}
+.logo3{
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 705px;
+}
