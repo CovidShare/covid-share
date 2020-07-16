@@ -5,7 +5,6 @@ import Navbar from './components/Navbar';
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
-//import Todos from "./Components/Todos";
 //import Admin from "./Components/Admin";
 //import PrivateRoute from "./hocs/PrivateRoute";
 //import UnPrivateRoute from "./hocs/UnPrivateRoute";
