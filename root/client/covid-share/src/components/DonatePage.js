@@ -16,7 +16,6 @@ const DonatePage = (props) => {
       if (data.success) {
         setUser(data.user);
         setIsAuthenticated(false);
-        //history.push("/register") // ADDED to redirect logout to register
       }
     })
   }

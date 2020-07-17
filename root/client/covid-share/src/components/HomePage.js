@@ -11,16 +11,89 @@ import { AuthContext } from '../context/AuthContext';
 
 const HomePage = (props) => {
   const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
-
+  
   const onClickLogoutHandler = () => {
     AuthService.logout().then(data => {
       if (data.success) {
         setUser(data.user);
         setIsAuthenticated(false);
-        //history.push("/register") // ADDED to redirect logout to register
       }
     })
   }
+
+  /*
+  const unauthenticatedUser = () => {
+    return (
+      <div className="home">
+        <img src={logoN} alt="logo" class="center" />
+        <a href="/login">
+          <button className="logIn_logOut">Log In</button>
+        </a>
+
+        <a href="/register">
+          <button className="signUp">Sign Up</button>
+        </a>
+        <NavBar></NavBar>
+        <main>
+          <Container fluid>
+            <Row>
+              <Col>
+                <CDC className="pls"></CDC>
+              </Col>
+              <Col xs="auto">
+                <TwitterContainer></TwitterContainer>
+              </Col>
+            </Row>
+          </Container>
+        </main>
+        <div className="footer">
+          <p>COVIDSHARE</p>
+        </div>
+      </div>
+    );
+  }
+
+  const authenticatedUser = () => {
+    return (
+      <div className="home">
+        <img src={logoN} alt="logo" class="center" />
+        <button type="button"
+          className="logIn_logOut"
+          onClick={onClickLogoutHandler}>
+          Logout
+          </button>
+        <NavBar></NavBar>
+        <main>
+          <Container fluid>
+            <Row>
+              <Col>
+                <CDC className="pls"></CDC>
+              </Col>
+              <Col xs="auto">
+                <TwitterContainer></TwitterContainer>
+              </Col>
+            </Row>
+          </Container>
+        </main>
+        <div className="footer">
+          <p>COVIDSHARE</p>
+        </div>
+      </div>
+    );
+  }
+
+  // <> React Fragment
+  return (
+    <>
+      {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
+    </>
+  );
+};
+
+*/
+
+
+
 
   const unauthenticatedUser = () => {
     return (
@@ -37,6 +110,7 @@ const HomePage = (props) => {
   }
 
   const authenticatedUser = () => {
+    setIsAuthenticated(isAuthenticated);
     return (
       <button type="button"
         className="logIn_logOut"
@@ -44,6 +118,7 @@ const HomePage = (props) => {
         Logout
       </button>
     )
+    
   }
 
   return (

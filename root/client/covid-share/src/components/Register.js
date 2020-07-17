@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import AuthService from "../services/AuthService";
+import AuthContext from "../context/AuthContext";
 import Message from "../components/Message";
 import logoN from "../assets/LogoNew.png";
 
@@ -11,14 +12,7 @@ const Register = (props) => {
     password: "",
   });
   const [message, setMessage] = useState(null);
-  let timerID = useRef(null); // Creates instance var to set timeout method
-
-  // Cleans what useRef does
-  useEffect(() => {
-    return () => {
-      clearTimeout(timerID);
-    };
-  }, []);
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
   const onChangeHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -36,9 +30,8 @@ const Register = (props) => {
       setMessage(message);
       resetForm();
       if (!message.messageError) {
-        timerID = setTimeout(() => {
-          props.history.push("/login");
-        }, 2000);
+        setIsAuthenticated(isAuthenticated)
+        props.history.push("/login");
       }
     });
   };
@@ -100,7 +93,6 @@ const Register = (props) => {
           </button>
         </div>
       </form>
-
       {message ? <Message message={message} /> : null}
     </div>
   );

@@ -11,10 +11,15 @@ export default {
                 'Content-Type': "Application/json"
             }
         }).then(res => {
-                if (res.status !== 401) // Passport responds 401 status if not authenticated
-                    return res.json().then(data => data); // Authenticated
+                if (res.status !== 401 && res.status === 200) // Passport responds 401 status if not authenticated and 200 if authenticated
+                    return (
+                        res.json().then(data => data), // Authenticated
+                        {message: { messageBody: "Succesfully logged in", messageError: false }}
+                    )
                 else
-                    return { isAuthenticated: false, user: { username: "", privilege: "" } };
+                    return console.log(res.status),{ isAuthenticated: false, user: { username: "", privilege: "" },
+                    message: { messageBody: "Invalid username or password", messageError: true }
+                 };
             })
     },
 

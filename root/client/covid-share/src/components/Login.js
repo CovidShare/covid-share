@@ -1,13 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
+import { Redirect } from 'react-router'
 import AuthService from "../services/AuthService";
 import Message from "../components/Message";
 import { AuthContext } from "../context/AuthContext";
 import logoN from "../assets/LogoNew.png";
+import "../styles/Login.css";
 
 const Login = (props) => {
   const authContext = useContext(AuthContext);
   const [user, setUser] = useState({ username: "", password: "" });
   const [message, setMessage] = useState(null);
+  const [redirect, setRedirect] = useState(false);
+  let timerID = useRef(null); // Creates instance var to set timeout method
+
 
   const onChangeHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -23,6 +28,12 @@ const Login = (props) => {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
       } else setMessage(message);
+      if (!message.messageError) {
+        timerID = setTimeout(() => {
+          setRedirect(true);
+          props.history.push("/home");
+        }, 1000);
+      }
     });
   };
 
@@ -57,10 +68,13 @@ const Login = (props) => {
             LOG IN
           </button>
         </div>
+        {console.log("**********************",redirect)}
+        {message ? <Message className="message" message={message} /> : null}
+        {/*redirect ? <Redirect to="/home"/> : null*/}
       </form>
-      {message ? <Message message={message} /> : null}
     </div>
   );
 };
+
 
 export default Login;
