@@ -13,7 +13,6 @@ const Register = (props) => {
   });
   const [message, setMessage] = useState(null);
   const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext);
-  const authContext = useContext(AuthContext);
 
   const onChangeHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -21,7 +20,12 @@ const Register = (props) => {
   };
 
   const resetForm = () => {
-    setUser({ username: "", password: "", privilege: "" });
+    setUser({
+      username: "",
+      fullName: "",
+      password: "",
+      email: "",
+  });
   };
 
   const onSubmit = (e) => {
@@ -51,7 +55,7 @@ const Register = (props) => {
             <input
               type="text"
               name="fullName"
-              value={user.privilege}
+              value={user.fullName}
               className="name"
               onChange={onChangeHandler}
             />
@@ -73,7 +77,7 @@ const Register = (props) => {
             <input
               type="text"
               name="email"
-              value={user.privilege}
+              value={user.email}
               onChange={onChangeHandler}
               className="email"
             />
