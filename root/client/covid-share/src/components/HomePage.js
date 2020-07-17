@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import NavBar from "../components/NavBar.js";
 import "../styles/HomePage.css";
 import logoN from "../assets/LogoNew.png";
@@ -20,80 +20,6 @@ const HomePage = (props) => {
       }
     })
   }
-
-  /*
-  const unauthenticatedUser = () => {
-    return (
-      <div className="home">
-        <img src={logoN} alt="logo" class="center" />
-        <a href="/login">
-          <button className="logIn_logOut">Log In</button>
-        </a>
-
-        <a href="/register">
-          <button className="signUp">Sign Up</button>
-        </a>
-        <NavBar></NavBar>
-        <main>
-          <Container fluid>
-            <Row>
-              <Col>
-                <CDC className="pls"></CDC>
-              </Col>
-              <Col xs="auto">
-                <TwitterContainer></TwitterContainer>
-              </Col>
-            </Row>
-          </Container>
-        </main>
-        <div className="footer">
-          <p>COVIDSHARE</p>
-        </div>
-      </div>
-    );
-  }
-
-  const authenticatedUser = () => {
-    return (
-      <div className="home">
-        <img src={logoN} alt="logo" class="center" />
-        <button type="button"
-          className="logIn_logOut"
-          onClick={onClickLogoutHandler}>
-          Logout
-          </button>
-        <NavBar></NavBar>
-        <main>
-          <Container fluid>
-            <Row>
-              <Col>
-                <CDC className="pls"></CDC>
-              </Col>
-              <Col xs="auto">
-                <TwitterContainer></TwitterContainer>
-              </Col>
-            </Row>
-          </Container>
-        </main>
-        <div className="footer">
-          <p>COVIDSHARE</p>
-        </div>
-      </div>
-    );
-  }
-
-  // <> React Fragment
-  return (
-    <>
-      {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
-    </>
-  );
-};
-
-*/
-
-
-
 
   const unauthenticatedUser = () => {
     return (
@@ -118,13 +44,14 @@ const HomePage = (props) => {
         Logout
       </button>
     )
-    
   }
 
   return (
     <div className="home">
       <img src={logoN} alt="logo" class="center" />
-      {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
+      <div>
+        {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
+      </div>
       <NavBar></NavBar>
       <main>
         <Container fluid>

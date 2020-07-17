@@ -1,5 +1,5 @@
-import React, { useState, useContext, useRef } from "react";
-import { Redirect } from 'react-router'
+import React, { useState, useContext } from "react";
+//import { Redirect } from 'react-router'
 import AuthService from "../services/AuthService";
 import Message from "../components/Message";
 import { AuthContext } from "../context/AuthContext";
@@ -10,8 +10,7 @@ const Login = (props) => {
   const authContext = useContext(AuthContext);
   const [user, setUser] = useState({ username: "", password: "" });
   const [message, setMessage] = useState(null);
-  const [redirect, setRedirect] = useState(false);
-  let timerID = useRef(null); // Creates instance var to set timeout method
+  //const [redirect, setRedirect] = useState(false);
 
 
   const onChangeHandler = (e) => {
@@ -29,10 +28,8 @@ const Login = (props) => {
         authContext.setIsAuthenticated(isAuthenticated);
       } else setMessage(message);
       if (!message.messageError) {
-        timerID = setTimeout(() => {
-          setRedirect(true);
-          props.history.push("/home");
-        }, 1000);
+        //setRedirect(true);
+        props.history.push("/"); // Sprint2 to "/home"
       }
     });
   };
@@ -68,7 +65,6 @@ const Login = (props) => {
             LOG IN
           </button>
         </div>
-        {console.log("**********************",redirect)}
         {message ? <Message className="message" message={message} /> : null}
         {/*redirect ? <Redirect to="/home"/> : null*/}
       </form>

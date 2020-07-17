@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import AuthService from "../services/AuthService";
-import AuthContext from "../context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import Message from "../components/Message";
 import logoN from "../assets/LogoNew.png";
 
@@ -12,7 +12,8 @@ const Register = (props) => {
     password: "",
   });
   const [message, setMessage] = useState(null);
-  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+  const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
 
   const onChangeHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -26,7 +27,7 @@ const Register = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     AuthService.register(user).then((data) => {
-      const { message } = data;
+      const { message, isAuthenticated } = data;
       setMessage(message);
       resetForm();
       if (!message.messageError) {
