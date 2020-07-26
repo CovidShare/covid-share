@@ -42,12 +42,11 @@ const signToken = userID => {
     }, config.jwt.secretKey, { expiresIn: "1h" });
 }
 
-// ** TODO: we still need to add logging with email **
 export const login = (req, res) => {
     if (req.isAuthenticated()) {
         // req.username comes from passport that is ataching the user object to the req obj
         const { _id, username, privilege } = req.user;
-        const token = signToken(_id); // Create jwt token since we signed in
+        const token = signToken(_id);
         res.cookie('access_token', token, { httpOnly: true, sameSite: true });
         // httpOnly: Set that the client side cannot change this cookie.. prevent cross-site scripting attack
         // sameSite: prevent agains croos-site request forgery attacks (protect token not to be stolen?)
@@ -60,4 +59,33 @@ export const logout = (req, res) => {
     res.clearCookie('access_token'); //remove jwt access_token
     res.json({ user: { username: "", privilege: "" }, success: true }); // MAYBE ADD EMAIL AND PHONE? ***
     console.log("Succesfully logged out");
+}
+
+export const authenticated = (req, res) => {
+    const { username, privilege } = req.user;
+    res.status(200).json({ isAuthenticated: true, user: { username, privilege } });
+}
+
+export const getUserInfo = (req, res) => {
+    console.log("*********REQ.BODY", req.body.username)
+    User.findOne({ username: req.body.username })
+        .then(user => {
+            res.status(200).json({
+                user: {
+                    username: user.username,
+                    fullName: user.fullName,
+                    email: user.email,
+                    privilege: user.privilege
+                }
+            })
+        })
+
+}
+
+export const admin = (req, res) => {
+    if (req.user.privilege === 'admin') {
+        res.status(200).json({ message: { messageBody: 'You are an admin', messageError: false } });
+    }
+    else
+        res.status(403).json({ message: { messageBody: "You are not an admin", messageError: true } });
 }

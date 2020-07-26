@@ -32,9 +32,8 @@ passport.use(new JwtStrategy({
 }));
 
 
-// loginOption as usernameField to logIn with username, email or mobile
-export const LocalStrategy = passportLocal.Strategy;
 // LocalStrategy(verifyCallback(username, password, doneCallback))
+export const LocalStrategy = passportLocal.Strategy;
 passport.use(new LocalStrategy( (username, password, done) => {
     User.findOne({username}, (err, user) => {
         // done(error, boolean if found username) 
@@ -45,26 +44,3 @@ passport.use(new LocalStrategy( (username, password, done) => {
         user.comparePassword(password, done); // Check if password is correct (from User.js)
     });
 }));
-
-
-
-/* REGISTER WITH EMAIL - working on it 
-
-export const LocalStrategy = passportLocal.Strategy;
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password',
-}, (email, password, done) => {
-    // Check if user exists
-    User.findOne({ email }, (err, user) => {
-            console.log(user);
-            if (err)
-                return done(err);
-            if (!user)
-                return done(null, false);
-
-            user.comparePassword(password, done); // Check if password is correct (from UserModel)
-    });
-}));
-
-*/

@@ -11,16 +11,17 @@ export default {
                 'Content-Type': "Application/json"
             }
         }).then(res => {
-                if (res.status !== 401 && res.status === 200) // Passport responds 401 status if not authenticated and 200 if authenticated
-                    return (
-                        res.json().then(data => data), // Authenticated
-                        {message: { messageBody: "Succesfully logged in", messageError: false }}
-                    )
-                else
-                    return console.log(res.status),{ isAuthenticated: false, user: { username: "", privilege: "" },
+            if (res.status !== 401 && res.status === 200) // Passport responds 401 status if not authenticated and 200 if authenticated
+                return (
+                    res.json().then(data => data), // Authenticated
+                    { message: { messageBody: "Succesfully logged in", messageError: false } }
+                )
+            else
+                return console.log(res.status), {
+                    isAuthenticated: false, user: { username: "", privilege: "" },
                     message: { messageBody: "Invalid username or password", messageError: true }
-                 };
-            })
+                };
+        })
     },
 
     register: user => {
@@ -50,5 +51,25 @@ export default {
                 else
                     return { isAuthenticated: false, user: { username: "", privilege: "" } }; // not authenticated
             });
-    }
+    }/*,
+
+    getUserInfo: user => {
+        console.log("USER",user)
+        return fetch("/auth/profile", {
+            method: "post",
+            body: JSON.stringify({username: user.username}),
+            headers: {
+                'Content-Type': "Application/json"
+            }
+        }).then(res => {
+            if (res.status !== 401 && res.status === 200) // Passport responds 401 status if not authenticated and 200 if authenticated
+                return (
+                    res.json().then(data => data)
+                )
+            else
+                return {
+                    message: { messageBody: "Unauthorized", messageError: true }
+                };
+        })
+    }*/
 }
