@@ -11,10 +11,18 @@ const Profile = (props) => {
     const [userEmail, setUserEmail] = useState("");
     const [userPrivilege, setUserPrivilege] = useState("");
     const [userID, setUserID] = useState("");
+    const [updatedUserData, setUpdatedUserData] = useState({
+        _id: "",
+        username: "",
+        email: "",
+        fullName: "",
+        privilege: ""
+    });
 
     // Toggle update button
     const [toggleUpdate, setToggleUpdate] = useState(false);
 
+    // GET USER INFO
     async function getUser() {
         await axios.get(`/auth/user/p/${user.username}`)
             .then(res => {
@@ -27,6 +35,30 @@ const Profile = (props) => {
             })
     }
 
+    useEffect(() => {
+        getUser();
+    }, [])
+
+
+    // UPDATE USER INFO
+    const onChangeUpdate = (e) => {
+        setUpdatedUserData({ ...updatedUserData, [e.target.name]: e.target.value });
+    }
+
+    const updateUser = async () => {
+        await axios.post('/auth/admin/update', {
+            _id: userID,
+            username: updatedUserData.username,
+            email: updatedUserData.email,
+            fullName: updatedUserData.fullName,
+            privilege: updatedUserData.privilege
+        })
+    }
+
+    const onSubmitUpdate = (e) => {
+        e.preventDefault();
+        updateUser();
+    }
 
     const onClickToggle = (e) => {
         if (toggleUpdate)
@@ -68,7 +100,43 @@ const Profile = (props) => {
             </div>
             {toggleUpdate ?
                 <div>
-                    <h1>update inputs</h1>
+                    <form onSubmit={onSubmitUpdate}>
+                                            <div>
+                                                <div>
+                                                    <label>Username:</label>
+                                                    <input
+                                                        type="text"
+                                                        name="username"
+                                                        value={updatedUserData.username}
+                                                        placeholder={userUsername}
+                                                        onChange={onChangeUpdate}
+                                                    />
+                                                </div>
+
+                                                <div>
+                                                    <label>Full Name:</label>
+                                                    <input
+                                                        type="text"
+                                                        name="fullName"
+                                                        value={updatedUserData.fullName}
+                                                        placeholder={userFullName}
+                                                        onChange={onChangeUpdate}
+                                                    />
+                                                </div>
+
+                                                <div>
+                                                    <label>Email:</label>
+                                                    <input
+                                                        type="text"
+                                                        name="email"
+                                                        value={updatedUserData.email}
+                                                        placeholder={userEmail}
+                                                        onChange={onChangeUpdate}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <button type="submit">Update User</button>
+                                        </form>
                 </div> : null}
 
 

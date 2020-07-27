@@ -105,8 +105,6 @@ export const getUser = (req, res) => {
 }
 
 export const adminUpdateUser = (req, res) => {
-    console.log("REQ BODY", req.body, "REQ BODY")
-
     const updatedUserData = req.body;
     if (req.body.privilege != "admin" && req.body.privilege != "user")
         res.status(400).json({ message: { messageBody: "Privilege must be user or admin", messageError: true } });
@@ -127,7 +125,6 @@ export const adminUpdateUser = (req, res) => {
                     privilege: updatedUserData.privilege
                 }, { new: true })
                     .then(user => {
-                        console.log(user);
                         res.status(201).json({ message: { messageBody: "User succesfully updated", messageError: false } });
                     })
                     .catch(err => {

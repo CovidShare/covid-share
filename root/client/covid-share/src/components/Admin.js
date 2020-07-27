@@ -67,8 +67,6 @@ const Admin = () => {
     const onSubmitUpdate = (e) => {
         e.preventDefault();
         updateUser();
-
-
     }
 
 
@@ -123,17 +121,17 @@ const Admin = () => {
                                 <li> <strong>{"Privilege: "}</strong> {userPrivilege} </li>
                             </div>
                         </div>
-                        
+
                         <div>
-                            <form onSubmit={onSubmitUpdate}>
+                            <div>
                                 <div>
+                                    <button type="button"
+                                        onClick={onClickToggle}>
+                                        Modify User</button>
+                                </div>
+                                {toggleUpdate ?
                                     <div>
-                                        <button type="button"
-                                            onClick={onClickToggle}>
-                                            Modify User</button>
-                                    </div>
-                                    {toggleUpdate ?
-                                        <div>
+                                        <form onSubmit={onSubmitUpdate}>
                                             <div>
                                                 <div>
                                                     <label>Username:</label>
@@ -180,9 +178,9 @@ const Admin = () => {
                                                 </div>
                                             </div>
                                             <button type="submit">Update User</button>
-                                        </div> : null}
-                                </div>
-                            </form>
+                                        </form>
+                                    </div> : null}
+                            </div>
                         </div>
                     </div> : null}
             </div>
