@@ -138,3 +138,34 @@ export const adminUpdateUser = (req, res) => {
             res.status(500).json({ message: { messageBody: "Error has occured (Checking username/email)", messageError: true } });
         })
 }
+
+export const userUpdate = (req, res) => {
+    const updatedUserData = req.body;
+    User.findOne({ $or: [{ username: updatedUserData.username }, { email: updatedUserData.email }] })
+        .then(user => {
+            if (user && user._id != updatedUserData._id) {
+                if (user.username === updatedUserData.username)
+                    res.status(400).json({ message: { messageBody: "Username already in use", messageError: true } });
+                else if (user.email === updatedUserData.email)
+                    res.status(400).json({ message: { messageBody: "Email already in use", messageError: true } });
+            }
+            else {
+                User.findByIdAndUpdate(updatedUserData._id, {
+                    username: updatedUserData.username,
+                    fullName: updatedUserData.fullName,
+                    email: updatedUserData.email
+                }, { new: true })
+                    .then(user => {
+                        res.status(201).json({ message: { messageBody: "User succesfully updated", messageError: false } });
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        res.status(500).json({ message: { messageBody: "Error has occured (updating user)", messageError: true } });
+                    })
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ message: { messageBody: "Error has occured (Checking username/email)", messageError: true } });
+        })
+}

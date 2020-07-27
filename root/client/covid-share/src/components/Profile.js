@@ -43,15 +43,15 @@ const Profile = (props) => {
     // UPDATE USER INFO
     const onChangeUpdate = (e) => {
         setUpdatedUserData({ ...updatedUserData, [e.target.name]: e.target.value });
+        //console.log(updatedUserData)
     }
 
     const updateUser = async () => {
-        await axios.post('/auth/admin/update', {
+        await axios.post('/auth/user/update', {
             _id: userID,
             username: updatedUserData.username,
             email: updatedUserData.email,
             fullName: updatedUserData.fullName,
-            privilege: updatedUserData.privilege
         })
     }
 
