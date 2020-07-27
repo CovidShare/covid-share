@@ -10,10 +10,10 @@ authRouter.get("/logout", passport.authenticate("jwt", { session: false }), auth
 
 authRouter.get("/authenticated",passport.authenticate("jwt", { session: false }), authController.authenticated);
 
-authRouter.post("/profile", passport.authenticate("jwt", { session: false }), authController.getUserInfo); 
+//authRouter.post("/profile", passport.authenticate("jwt", { session: false }), authController.getUserInfo); 
 
 authRouter.get('/admin',passport.authenticate('jwt',{session : false}), authController.admin);
-
-
+authRouter.get('/user/p/:username', passport.authenticate('jwt',{session : false}), authController.getUser);
+authRouter.post('/admin/update', passport.authenticate('jwt',{session : false}), authController.adminUpdateUser);
 
 export default authRouter;

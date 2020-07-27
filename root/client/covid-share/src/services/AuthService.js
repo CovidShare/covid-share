@@ -51,7 +51,7 @@ export default {
                 else
                     return { isAuthenticated: false, user: { username: "", privilege: "" } }; // not authenticated
             });
-    }/*,
+    },
 
     getUserInfo: user => {
         console.log("USER",user)
@@ -71,5 +71,5 @@ export default {
                     message: { messageBody: "Unauthorized", messageError: true }
                 };
         })
-    }*/
+    }
 }

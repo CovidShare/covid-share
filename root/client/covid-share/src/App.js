@@ -29,6 +29,5 @@ function App() {
     </Router>
   );
 }
-//<PrivateRoute path="/profile" privileges={["user", "admin"]} component={Profile}/>
 
 export default App;
