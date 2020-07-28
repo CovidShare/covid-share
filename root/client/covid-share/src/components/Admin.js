@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 //import { AuthContext } from '../context/AuthContext';
-import AuthService from '../services/AuthService';
+//import AuthService from '../services/AuthService';
 import axios from 'axios';
 
 const Admin = () => {

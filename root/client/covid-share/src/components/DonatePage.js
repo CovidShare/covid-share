@@ -1,8 +1,8 @@
-import React , { useContext } from "react";
+import React, { useContext } from "react";
 import NavBar from "./NavBar.js";
 import "../styles/DonatePage.css";
 import logoN from "../assets/LogoNew.png";
-import TwitterContainer from "../components/TwitterContainer.js";
+//import TwitterContainer from "../components/TwitterContainer.js";
 import AuthService from '../services/AuthService';
 import { AuthContext } from '../context/AuthContext';
 
@@ -36,11 +36,17 @@ const DonatePage = (props) => {
 
   const authenticatedUser = () => {
     return (
-      <button type="button"
-        className="logIn_logOut"
-        onClick={onClickLogoutHandler}>
-        Logout
+      <>
+        <button type="button"
+          className="logIn_logOut"
+          onClick={onClickLogoutHandler}>
+          Logout
       </button>
+
+        <a href="/profile">
+          <button className="signUp">Profile</button>
+        </a>
+      </>
     )
   }
 

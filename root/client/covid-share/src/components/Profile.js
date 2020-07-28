@@ -5,6 +5,7 @@ import AuthService from '../services/AuthService';
 
 const Profile = (props) => {
     const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
+    const [isAdmin, setIsAdmin] = useState(false);
     // Selected user data (Ideally would be in one obj, using useEffect hook)
     const [userUsername, setUserUsername] = useState("");
     const [userFullName, setUserFullName] = useState("");
@@ -18,7 +19,6 @@ const Profile = (props) => {
         fullName: "",
         privilege: ""
     });
-
     // Toggle update button
     const [toggleUpdate, setToggleUpdate] = useState(false);
 
@@ -32,11 +32,17 @@ const Profile = (props) => {
                 setUserEmail(res.data.email);
                 setUserPrivilege(res.data.privilege);
                 setUserID(res.data._id);
+
+                if (res.data.privilege === "admin")
+                    setIsAdmin(true);
             })
     }
 
     useEffect(() => {
         getUser();
+        //if (userPrivilege == "admin")
+        //    setIsAdmin(true);
+        console.log("ISADMIN",userPrivilege)
     }, [])
 
 
@@ -74,6 +80,14 @@ const Profile = (props) => {
                 <h3>Hello, {user.username}.</h3>
             </div>
 
+            {isAdmin ?
+                <div>
+                    <a href="/admin">
+                        <button>Admin Panel</button>
+                    </a>
+                </div> : null}
+
+
             <div>
                 <div>
                     <div>
@@ -101,42 +115,42 @@ const Profile = (props) => {
             {toggleUpdate ?
                 <div>
                     <form onSubmit={onSubmitUpdate}>
-                                            <div>
-                                                <div>
-                                                    <label>Username:</label>
-                                                    <input
-                                                        type="text"
-                                                        name="username"
-                                                        value={updatedUserData.username}
-                                                        placeholder={userUsername}
-                                                        onChange={onChangeUpdate}
-                                                    />
-                                                </div>
+                        <div>
+                            <div>
+                                <label>Username:</label>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    value={updatedUserData.username}
+                                    placeholder={userUsername}
+                                    onChange={onChangeUpdate}
+                                />
+                            </div>
 
-                                                <div>
-                                                    <label>Full Name:</label>
-                                                    <input
-                                                        type="text"
-                                                        name="fullName"
-                                                        value={updatedUserData.fullName}
-                                                        placeholder={userFullName}
-                                                        onChange={onChangeUpdate}
-                                                    />
-                                                </div>
+                            <div>
+                                <label>Full Name:</label>
+                                <input
+                                    type="text"
+                                    name="fullName"
+                                    value={updatedUserData.fullName}
+                                    placeholder={userFullName}
+                                    onChange={onChangeUpdate}
+                                />
+                            </div>
 
-                                                <div>
-                                                    <label>Email:</label>
-                                                    <input
-                                                        type="text"
-                                                        name="email"
-                                                        value={updatedUserData.email}
-                                                        placeholder={userEmail}
-                                                        onChange={onChangeUpdate}
-                                                    />
-                                                </div>
-                                            </div>
-                                            <button type="submit">Update User</button>
-                                        </form>
+                            <div>
+                                <label>Email:</label>
+                                <input
+                                    type="text"
+                                    name="email"
+                                    value={updatedUserData.email}
+                                    placeholder={userEmail}
+                                    onChange={onChangeUpdate}
+                                />
+                            </div>
+                        </div>
+                        <button type="submit">Update User</button>
+                    </form>
                 </div> : null}
 
 

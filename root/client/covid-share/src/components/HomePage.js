@@ -11,7 +11,7 @@ import { AuthContext } from '../context/AuthContext';
 
 const HomePage = (props) => {
   const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
-  
+
   const onClickLogoutHandler = () => {
     AuthService.logout().then(data => {
       if (data.success) {
@@ -38,11 +38,17 @@ const HomePage = (props) => {
   const authenticatedUser = () => {
     setIsAuthenticated(isAuthenticated);
     return (
-      <button type="button"
-        className="logIn_logOut"
-        onClick={onClickLogoutHandler}>
-        Logout
+      <>
+        <button type="button"
+          className="logIn_logOut"
+          onClick={onClickLogoutHandler}>
+          Logout
       </button>
+
+        <a href="/profile">
+          <button className="signUp">Profile</button>
+        </a>
+      </>
     )
   }
 
