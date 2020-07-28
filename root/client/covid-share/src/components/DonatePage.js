@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React , { useContext } from "react";
 import NavBar from "./NavBar.js";
 import "../styles/DonatePage.css";
 import logoN from "../assets/LogoNew.png";
-//import TwitterContainer from "../components/TwitterContainer.js";
+import TwitterContainer from "../components/TwitterContainer.js";
 import AuthService from '../services/AuthService';
 import { AuthContext } from '../context/AuthContext';
 
 import { Container, Row, Col } from "react-bootstrap";
+
 
 const DonatePage = (props) => {
   const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
@@ -36,17 +37,11 @@ const DonatePage = (props) => {
 
   const authenticatedUser = () => {
     return (
-      <>
-        <button type="button"
-          className="logIn_logOut"
-          onClick={onClickLogoutHandler}>
-          Logout
+      <button type="button"
+        className="logIn_logOut"
+        onClick={onClickLogoutHandler}>
+        Logout
       </button>
-
-        <a href="/profile">
-          <button className="signUp">Profile</button>
-        </a>
-      </>
     )
   }
 
@@ -64,15 +59,13 @@ const DonatePage = (props) => {
           <Row>
             <Col>
               <br></br>
-              <h1 className="pageHeader">Organizations Combatting Covid-19</h1>
-              <h5>
-                This page is dedicated to providing resources that we feel are
-                doing a good job combatting the Covid-19 Pandemic. These
-                resources are working to raise funds to combat pandemic and its
-                wide reaching effects and also provide information and resources
-                on keeping oneself as safe and healthy as they can be during
-                these challenging times.
-              </h5>
+              <h1 className="pageHeader">Donate to Combat Covid-19</h1>
+              <h6 className="subheading"> 
+                This page provides links to projects that are raising funds to fight
+                the Covid-19 Pandemic. Additionally, links are provided to sources containing 
+                useful resources and information on practices to keep people as healthy as 
+                possible, both physically and mentally.  
+              </h6>
               <br></br>
               <p className="orgs">
                 <p className="linkHead">
@@ -174,3 +167,4 @@ const DonatePage = (props) => {
 };
 
 export default DonatePage;
+
