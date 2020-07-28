@@ -8,10 +8,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import TwitterTimelineEmbed from "react-twitter-embed";
 import AuthService from '../services/AuthService';
 import { AuthContext } from '../context/AuthContext';
+import GoogleMap from "../components/GoogleMap.js"
 
 const HomePage = (props) => {
   const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
-
+  
   const onClickLogoutHandler = () => {
     AuthService.logout().then(data => {
       if (data.success) {
@@ -38,17 +39,11 @@ const HomePage = (props) => {
   const authenticatedUser = () => {
     setIsAuthenticated(isAuthenticated);
     return (
-      <>
-        <button type="button"
-          className="logIn_logOut"
-          onClick={onClickLogoutHandler}>
-          Logout
+      <button type="button"
+        className="logIn_logOut"
+        onClick={onClickLogoutHandler}>
+        Logout
       </button>
-
-        <a href="/profile">
-          <button className="signUp">Profile</button>
-        </a>
-      </>
     )
   }
 
@@ -63,7 +58,9 @@ const HomePage = (props) => {
         <Container fluid>
           <Row>
             <Col>
-              <CDC className="pls"></CDC>
+              {/* <CDC className="pls"></CDC> */}
+              <GoogleMap></GoogleMap>
+              <br></br>
             </Col>
             <Col xs="auto">
               <TwitterContainer></TwitterContainer>
