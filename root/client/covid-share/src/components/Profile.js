@@ -2,7 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios'
 import { AuthContext } from '../context/AuthContext';
 import Message from "../components/Message";
-
+import "../styles/Profile.css";
+import logoN from "../assets/LogoNew.png";
 const Profile = (props) => {
     const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
     const [isAdmin, setIsAdmin] = useState(false);
@@ -77,42 +78,34 @@ const Profile = (props) => {
     }
 
     return (
-        <div>
-            <div>
-                <h3>Hello, {user.username}.</h3>
-            </div>
+   
+        <div className="adminContainer">
 
-            {isAdmin ?
-                <div>
+
+            <div className="form-group">
+            <a href="/home">
+                 <img src={logoN} />
+            </a>     
+                <h1>Hello, {user.username}.</h1>
+                {isAdmin ?     
                     <a href="/admin">
-                        <button>Admin Panel</button>
+                        <button className="modButton" type="submit">Admin Panel</button>
                     </a>
-                </div> : null}
+                : null}
+                     <form>  
+                        <h3>Account Information</h3>
+                        <div className="form-group">
+                        <h5>{"Username: "}{userUsername} </h5>
+                        <h5>{"Full Name: "}{userFullName} </h5>
+                        <h5>{"Email: "} {userEmail} </h5>
+                        </div>
 
-            <div>
-                <div>
-                    <div>
-                        <h5>Account Information</h5>
-                    </div>
-                    <div>
-                        <li> <strong>{"Username: "}</strong> {userUsername} </li>
-                    </div>
-                    <div>
-                        <li> <strong>{"Full Name: "}</strong> {userFullName} </li>
-                    </div>
-                    <div>
-                        <li> <strong>{"Email: "}</strong> {userEmail} </li>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <button type="button"
+                    </form>
+                    <button className="modButton" type="submit"
                         onClick={onClickToggle}>
                         Update Account Information</button>
-                </div>
-            </div>
+                      
+        
             {toggleUpdate ?
                 <div>
                     <form onSubmit={onSubmitUpdate}>
@@ -125,6 +118,7 @@ const Profile = (props) => {
                                     value={updatedUserData.username}
                                     placeholder={userUsername}
                                     onChange={onChangeUpdate}
+                                    className="form"
                                 />
                             </div>
 
@@ -136,6 +130,7 @@ const Profile = (props) => {
                                     value={updatedUserData.fullName}
                                     placeholder={userFullName}
                                     onChange={onChangeUpdate}
+                                    className="form"
                                 />
                             </div>
 
@@ -147,21 +142,20 @@ const Profile = (props) => {
                                     value={updatedUserData.email}
                                     placeholder={userEmail}
                                     onChange={onChangeUpdate}
+                                    className="form"
+
                                 />
                             </div>
                         </div>
-                        <button type="submit">Update User</button>
+                        <button className="updateButton" type="submit">Update User</button>
                     </form>
                 </div> : null}
+                
 
                 <div>
                 {message ? <Message className="message" message={message} /> : null}
                 </div>
-
-
-
-
-
+                </div>
         </div>
     );
 }

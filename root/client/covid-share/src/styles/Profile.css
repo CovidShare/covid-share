@@ -1,0 +1,56 @@
+.formContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #dee3e3;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+  
+}
+.adminContainer {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex; 
+  background-color: #dee3e3;
+  align-items: left;
+  flex-direction: column;
+  justify-content: space-around;
+  
+  font-family: Forum;
+}
+
+.modButton {
+  background-color: #405353;
+  border: 2px solid #405353;
+  padding: 14px 30px;
+  color: white;
+  font-size: large;
+  border-radius: 10px;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+  margin:10px;
+  
+}
+.updateButton{
+  background-color: #405353;
+  border: 2px solid #405353;
+  padding: 5px 15px;
+  color: white;
+  font-size: large;
+  border-radius: 10px;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+}
+.form {
+  margin-left: 20px;
+}
+
+.form-group {
+  display: flex;
+  background-color: #dee3e3;
+  align-content: left;
+  flex-direction: column;
+}

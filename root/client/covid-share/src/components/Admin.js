@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Message from "../components/Message";
 import axios from 'axios';
+import "../styles/Admin.css";
+import logoN from "../assets/LogoNew.png";
 
 const Admin = () => {
     // Inputs
@@ -78,22 +80,27 @@ const Admin = () => {
     }
 
     return (
-        <div>
-            <div>
-                <h1>Admin Page</h1>
-            </div>
+        <div className="panelContainer">
+             <a href="/home">
+                <img src={logoN} />
+            </a>
+           
+                <h1>Admin Panel</h1>
+        
             <div>
                 <form onSubmit={onSubmitUsername}>
                     <div>
                         <div>
                             <input
                                 type="text"
+
                                 name="username"
                                 placeholder="username"
                                 onChange={onChangeUsername}
+                                
                             />
                         </div>
-                        <button type="submit">Search User</button>
+                        <button className="searchButton" type="submit">Search User</button>
                     </div>
                 </form>
             </div>
@@ -103,32 +110,34 @@ const Admin = () => {
                     <div>
                         <div>
                             <div>
-                                <h5>User</h5>
+                                <h4><strong>User Information</strong></h4>
                             </div>
                             <div>
-                                <li> <strong>{"id: "}</strong> {userID} </li>
+                                <h5> {"id: "}{userID} </h5>
                             </div>
                             <div>
-                                <li> <strong>{"Username: "}</strong> {userUsername} </li>
+                                 <h5> {"Username: "}{userUsername} </h5>
                             </div>
                             <div>
-                                <li> <strong>{"Full Name: "}</strong> {userFullName} </li>
+                                <h5> {"Full Name: "} {userFullName} </h5>
                             </div>
                             <div>
-                                <li> <strong>{"Email: "}</strong> {userEmail} </li>
+                                <h5> {"Email: "}{userEmail} </h5>
                             </div>
                             <div>
-                                <li> <strong>{"Privilege: "}</strong> {userPrivilege} </li>
+                                 <h5> {"Privilege: "}{userPrivilege} </h5>
                             </div>
                         </div>
 
                         <div>
                             <div>
                                 <div>
-                                    <button type="button"
+                                    <button className="searchButton"type="button"
                                         onClick={onClickToggle}>
                                         Modify User</button>
                                 </div>
+
+
                                 {toggleUpdate ?
                                     <div>
                                         <form onSubmit={onSubmitUpdate}>
@@ -141,7 +150,9 @@ const Admin = () => {
                                                         value={updatedUserData.username}
                                                         placeholder={userUsername}
                                                         onChange={onChangeUpdate}
+                                                        className="form"
                                                     />
+
                                                 </div>
 
                                                 <div>
@@ -152,6 +163,7 @@ const Admin = () => {
                                                         value={updatedUserData.fullName}
                                                         placeholder={userFullName}
                                                         onChange={onChangeUpdate}
+                                                        className="form"
                                                     />
                                                 </div>
 
@@ -163,6 +175,7 @@ const Admin = () => {
                                                         value={updatedUserData.email}
                                                         placeholder={userEmail}
                                                         onChange={onChangeUpdate}
+                                                        className="form"
                                                     />
                                                 </div>
 
@@ -174,11 +187,13 @@ const Admin = () => {
                                                         value={updatedUserData.privilege}
                                                         placeholder={userPrivilege}
                                                         onChange={onChangeUpdate}
+                                                        className="form"
                                                     />
                                                 </div>
                                             </div>
-                                            <button type="submit">Update User</button>
+                                            <button className="searchButton"type="submit">Update User</button> 
                                         </form>
+
                                     </div> : null}
                             </div>
                             <div>
