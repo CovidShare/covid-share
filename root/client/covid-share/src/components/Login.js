@@ -29,7 +29,7 @@ const Login = (props) => {
       } else setMessage(message);
       if (!message.messageError) {
         //setRedirect(true);
-        props.history.push("/"); // Sprint2 to "/home"
+        props.history.push("/");
       }
     });
   };

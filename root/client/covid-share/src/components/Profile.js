@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios'
 import { AuthContext } from '../context/AuthContext';
-import AuthService from '../services/AuthService';
+import Message from "../components/Message";
 
 const Profile = (props) => {
     const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
@@ -19,8 +19,8 @@ const Profile = (props) => {
         fullName: "",
         privilege: ""
     });
-    // Toggle update button
-    const [toggleUpdate, setToggleUpdate] = useState(false);
+    const [toggleUpdate, setToggleUpdate] = useState(false); // Toggle update button
+    const [message, setMessage] = useState(null);
 
     // GET USER INFO
     async function getUser() {
@@ -59,6 +59,9 @@ const Profile = (props) => {
             email: updatedUserData.email,
             fullName: updatedUserData.fullName,
         })
+        .then( res => {
+            setMessage(res.data.message);
+        })
     }
 
     const onSubmitUpdate = (e) => {
@@ -73,7 +76,6 @@ const Profile = (props) => {
             setToggleUpdate(true);
     }
 
-
     return (
         <div>
             <div>
@@ -86,7 +88,6 @@ const Profile = (props) => {
                         <button>Admin Panel</button>
                     </a>
                 </div> : null}
-
 
             <div>
                 <div>
@@ -152,6 +153,11 @@ const Profile = (props) => {
                         <button type="submit">Update User</button>
                     </form>
                 </div> : null}
+
+                <div>
+                {message ? <Message className="message" message={message} /> : null}
+                </div>
+
 
 
 

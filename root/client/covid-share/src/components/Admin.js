@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-//import { AuthContext } from '../context/AuthContext';
-//import AuthService from '../services/AuthService';
+import Message from "../components/Message";
 import axios from 'axios';
 
 const Admin = () => {
@@ -13,9 +12,8 @@ const Admin = () => {
         fullName: "",
         privilege: ""
     });
-
-    // Toggle update user button
-    const [toggleUpdate, setToggleUpdate] = useState(false);
+    const [toggleUpdate, setToggleUpdate] = useState(false); // Toggle update user button
+    const [message, setMessage] = useState(null);
 
     // Selected user data (Ideally would be in one obj, using useEffect hook)
     const [userUsername, setUserUsername] = useState("");
@@ -62,13 +60,15 @@ const Admin = () => {
             fullName: updatedUserData.fullName,
             privilege: updatedUserData.privilege
         })
+        .then(res => {
+            setMessage(res.data.message);
+        })
     }
 
     const onSubmitUpdate = (e) => {
         e.preventDefault();
         updateUser();
     }
-
 
     const onClickToggle = (e) => {
         if (toggleUpdate)
@@ -180,6 +180,9 @@ const Admin = () => {
                                             <button type="submit">Update User</button>
                                         </form>
                                     </div> : null}
+                            </div>
+                            <div>
+                                {message ? <Message className="message" message={message} /> : null}
                             </div>
                         </div>
                     </div> : null}

@@ -97,7 +97,7 @@ export const getUser = (req, res) => {
             if (!selectedUser)
                 return res.status(403).json({ message: { messageBody: "Error, no user", messageError: true } });
 
-            return res.status(200).send(selectedUser)
+            return res.status(200).send(selectedUser);
         })
         .catch(err => {
             return res.status(403).json({ message: { messageBody: "Error getting user from DB", messageError: true } });
