@@ -40,7 +40,7 @@
 }
 .orgs {
   text-align: justify;
-  border: 1px solid black;
+  border: 8px ridge #1678A4;
   background-color: #e6ffe6;
   padding-top: 50px;
   padding-right: 30px;
@@ -58,22 +58,29 @@
 }
 .pageHeader {
   text-align: center;
+  color: #2015CA ;
+  text-shadow: 0px -2px 0px #333,
+    0px 2px 3px #666;
 }
 .logo1 {
   display: inline-block;
   position: absolute;
   right: 20px;
-  top: 178px;
+  top: 185px;
 }
 .logo2 {
   display: inline-block;
   position: absolute;
   right: 20px;
-  top: 440px;
+  top: 467px;
 }
 .logo3 {
   display: inline-block;
   position: absolute;
   right: 0px;
-  top: 705px;
+  top: 740px;
+}
+.subheading {
+  margin: 25px 100px;
+  text-align: center;
 }
