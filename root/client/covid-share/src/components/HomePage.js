@@ -64,7 +64,7 @@ const HomePage = (props) => {
         <Container fluid>
           <Row>
             <Col>
-//               <CDC className="pls"></CDC>
+                 {/* <CDC className="pls"></CDC> */}
                  <GoogleMap></GoogleMap>
                  <br></br>
             </Col>
