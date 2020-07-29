@@ -8,6 +8,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import TwitterTimelineEmbed from "react-twitter-embed";
 import AuthService from '../services/AuthService';
 import { AuthContext } from '../context/AuthContext';
+import GoogleMap from "../components/GoogleMap.js"
 
 const HomePage = (props) => {
   const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
