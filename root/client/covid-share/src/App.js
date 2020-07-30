@@ -1,6 +1,5 @@
 import React from "react";
-import { DefaultRoute, Router, Route } from 'react-router';
-//import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "./hocs/PrivateRoute";
 import UnPrivateRoute from "./hocs/UnPrivateRoute";
 
@@ -30,7 +29,7 @@ function App() {
       <UnPrivateRoute exact path="/register" component={Register} />
       <PrivateRoute path="/profile" privileges={["user", "admin"]} component={Profile}/>
       <PrivateRoute path="/admin" privileges={["admin"]} component={Admin}/>
-      <Route path="/blog" component={ Blog }>
+      <Route path="/share" component={ Blog }>
         <Route exact path="/posts" component={ Posts } />
         <PrivateRoute path="/add-post" privileges={["user", "admin"]} component={ AddPost } />
       </Route>
