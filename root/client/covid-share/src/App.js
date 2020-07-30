@@ -11,9 +11,9 @@ import Login from "./components/Login.js";
 import Admin from "./components/Admin";
 import Profile from "./components/Profile";
 
-import Blog from './containers/Blog';
-import Posts from './containers/Posts';
-import AddPost from './containers/AddPost';
+import Blog from './containers/Blog/index.js';
+import Posts from './containers/Posts/index.js';
+import AddPost from './containers/AddPost/index.js';
 
 //import { AuthContext } from './context/AuthContext'
 
@@ -31,7 +31,7 @@ function App() {
       <PrivateRoute path="/admin" privileges={["admin"]} component={Admin}/>
       <Route path="/share" component={ Blog }>
         <Route exact path="/posts" component={ Posts } />
-        <PrivateRoute path="/add-post" privileges={["user", "admin"]} component={ AddPost } />
+        <Route path="/add-post" component={ AddPost } />
       </Route>
     </Router>
   );
