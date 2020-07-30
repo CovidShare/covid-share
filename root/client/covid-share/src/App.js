@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { DefaultRoute, Router, Route } from 'react-router';
+//import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "./hocs/PrivateRoute";
 import UnPrivateRoute from "./hocs/UnPrivateRoute";
 
@@ -11,10 +12,13 @@ import Login from "./components/Login.js";
 import Admin from "./components/Admin";
 import Profile from "./components/Profile";
 
+import Blog from './containers/Blog';
+import Posts from './containers/Posts';
+import AddPost from './containers/AddPost';
 
-import TwitterContainer from "./components/TwitterContainer.js";
-import ReactDOM from "react-dom";
 //import { AuthContext } from './context/AuthContext'
+
+//trying out the PrivateRoute, please fix
 
 function App() {
   return (
@@ -26,6 +30,10 @@ function App() {
       <UnPrivateRoute exact path="/register" component={Register} />
       <PrivateRoute path="/profile" privileges={["user", "admin"]} component={Profile}/>
       <PrivateRoute path="/admin" privileges={["admin"]} component={Admin}/>
+      <Route path="/blog" component={ Blog }>
+        <Route exact path="/posts" component={ Posts } />
+        <PrivateRoute path="/add-post" privileges={["user", "admin"]} component={ AddPost } />
+      </Route>
     </Router>
   );
 }

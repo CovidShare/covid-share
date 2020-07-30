@@ -11,6 +11,7 @@ import "./styles/DonatePage.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import AuthProvider from "./context/AuthContext";
+import registerServiceWorker from './utils/registerServiceWorker';
 
 // AuthProvider wrapping app to get globals from AuthContext {children}
 ReactDOM.render(
@@ -19,3 +20,4 @@ ReactDOM.render(
   </AuthProvider>,
   document.getElementById("root")
 );
+registerServiceWorker();
