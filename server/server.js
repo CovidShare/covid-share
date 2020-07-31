@@ -13,7 +13,6 @@ import cron from "node-cron";
 
 const apiKey =
   "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";
-const PORT = process.env.NODE_ENV || config.port;
 
 // DATABASE CONNECTION
 mongoose.connect(
@@ -123,6 +122,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(process.env.NODE_ENV || config.port, () => {
-  console.log(`App now listening...`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Our app is running on port ${PORT}`);
 });
