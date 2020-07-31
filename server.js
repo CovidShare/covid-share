@@ -6,7 +6,7 @@ import path from 'path'
 import config from "./config/config.js";
 import authRouter from "./routes/AuthRouter.js";
 import User from "./models/UserModel.js";
-
+import dotenv from 'dotenv';
 import sgMail from "@sendgrid/mail";
 import axios from "axios";
 import cron from "node-cron";
