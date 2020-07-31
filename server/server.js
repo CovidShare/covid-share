@@ -6,7 +6,7 @@ import path from 'path'
 import config from "./config/config.js";
 import authRouter from "./routes/AuthRouter.js";
 import User from "./models/UserModel.js";
-import dotenv from 'dotenv';
+import {} from 'dotenv/config';
 import sgMail from "@sendgrid/mail";
 import axios from "axios";
 import cron from "node-cron";
@@ -123,6 +123,6 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.listen(PORT, () => {
-  console.log(`App now listening on port ${PORT}`);
+app.listen(process.env.NODE_ENV || config.port, () => {
+  console.log(`App now listening...`);
 });
