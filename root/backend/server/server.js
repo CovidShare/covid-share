@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import config from './config/config.js';
 import authRouter from './routes/AuthRouter.js';
 
+const PORT = process.env.PORT || config.port;
 
 // DATABASE CONNECTION
 mongoose.connect(config.db.uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, () => {
@@ -34,6 +35,6 @@ app.use("/auth", authRouter);
 
 
 
-app.listen(config.port, () => {
+app.listen(PORT, () => {
     console.log(`App now listening on port ${config.port}`);
 });
