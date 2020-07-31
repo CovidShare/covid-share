@@ -7,7 +7,7 @@ In this web application we will provide information and statistics about the dis
 ###### Instructions:
 1) Clone repo
 2) cd to backend folder and run ```npm install``` to download all necessary dependencies
-2) cd to client/covid-share folder and run ```npm install``` to download all necessary dependencies
+2) cd to client/covid-share folder and run ```npm install``` , ```npm install google-map-react```, and ```npm install react-number-format``` to download all necessary dependencies
 
 ###### To run:
 1) cd to backend folder and run ```npm start```
