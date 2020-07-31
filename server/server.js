@@ -2,11 +2,11 @@ import express from "express";
 import mongoose from "mongoose";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
-import path from 'path'
+import path from "path";
 import config from "./config/config.js";
 import authRouter from "./routes/AuthRouter.js";
 import User from "./models/UserModel.js";
-import {} from 'dotenv/config';
+import dotenv from "dotenv/config.js";
 import sgMail from "@sendgrid/mail";
 import axios from "axios";
 import cron from "node-cron";
@@ -115,12 +115,12 @@ app.use(express.json());
 app.use("/auth", authRouter);
 
 // Heroku - Serve statis assets if in production
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   // Set statis folder
-  app.use(express.static('client/build')); // Setting static folder and 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  })
+  app.use(express.static("client/build")); // Setting static folder and
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 }
 
 app.listen(process.env.NODE_ENV || config.port, () => {
