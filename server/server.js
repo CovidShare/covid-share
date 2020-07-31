@@ -10,7 +10,7 @@ import dotenv from "dotenv/config.js";
 import sgMail from "@sendgrid/mail";
 import axios from "axios";
 import cron from "node-cron";
-
+let __dirname = path.resolve();
 const apiKey =
   "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";
 
