@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
+import path from 'path'
 import config from "./config/config.js";
 import authRouter from "./routes/AuthRouter.js";
 import User from "./models/UserModel.js";
@@ -12,6 +13,7 @@ import cron from "node-cron";
 
 const apiKey =
   "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";
+const PORT = process.env.NODE_ENV || config.port;
 
 // DATABASE CONNECTION
 mongoose.connect(
@@ -111,6 +113,16 @@ app.use(express.json());
 
 // ROUTES
 app.use("/auth", authRouter);
-app.listen(config.port, () => {
-  console.log(`App now listening on port ${config.port}`);
+
+// Heroku - Serve statis assets if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set statis folder
+  app.use(express.static('client/build')); // Setting static folder and 
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
+
+app.listen(PORT, () => {
+  console.log(`App now listening on port ${PORT}`);
 });
