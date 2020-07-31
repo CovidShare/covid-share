@@ -10,13 +10,21 @@ const Register = (props) => {
     email: "",
     fullName: "",
     password: "",
+    notifications: false,
   });
   const [message, setMessage] = useState(null);
-  const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext);
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
   const onChangeHandler = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+      [e.notifications]: e.target.checked,
+    });
     //console.log(user);
+  };
+  const handleCheck = (e) => {
+    setUser({ notifications: e.target.checked });
   };
 
   const resetForm = () => {
@@ -25,7 +33,8 @@ const Register = (props) => {
       fullName: "",
       password: "",
       email: "",
-  });
+      notifications: true,
+    });
   };
 
   const onSubmit = (e) => {
@@ -35,7 +44,7 @@ const Register = (props) => {
       setMessage(message);
       resetForm();
       if (!message.messageError) {
-        setIsAuthenticated(isAuthenticated)
+        setIsAuthenticated(isAuthenticated);
         props.history.push("/login");
       }
     });
@@ -91,6 +100,16 @@ const Register = (props) => {
               value={user.password}
               className="form"
               onChange={onChangeHandler}
+            />
+          </div>
+          <div className="formContainer">
+            <h3>Email Notifications?</h3>
+
+            <input
+              type="checkbox"
+              className="checkbox"
+              checked={user.notifications}
+              onChange={handleCheck}
             />
           </div>
           <button className="loginButton" type="submit">

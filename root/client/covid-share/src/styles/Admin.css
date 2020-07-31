@@ -1,22 +1,20 @@
 .formContainer {
   display: flex;
   flex-direction: row;
- 
+
   background-color: #dee3e3;
   font-family: Forum;
   font-style: normal;
   font-weight: normal;
-  
 }
 .panelContainer {
   min-height: 100vh;
   min-width: 100vw;
-  display: flex; 
+  display: flex;
   background-color: #dee3e3;
   align-items: center;
   flex-direction: column;
- 
-  
+
   font-family: Forum;
 }
 
@@ -30,10 +28,9 @@
   font-family: Forum;
   font-style: normal;
   font-weight: normal;
-  margin:10px;
-  
+  margin: 10px;
 }
-.searchButton{
+.searchButton {
   background-color: #405353;
   border: 2px solid #405353;
   padding: 5px 15px;
@@ -43,10 +40,9 @@
   font-family: Forum;
   font-style: normal;
   font-weight: normal;
-  margin:10px;
+  margin: 10px;
 }
 .form {
- 
   align-items: left;
 }
 
@@ -55,4 +51,10 @@
   background-color: #dee3e3;
   align-items: center;
   flex-direction: column;
+}
+.notifications {
+  margin-right: 25px;
+}
+.notificationsleft {
+  margin-left: 25px;
 }
