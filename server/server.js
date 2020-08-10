@@ -10,6 +10,8 @@ import dotenv from "dotenv/config.js";
 import sgMail from "@sendgrid/mail";
 import axios from "axios";
 import cron from "node-cron";
+import cheerio from "cheerio";
+
 let __dirname = path.resolve();
 const apiKey =
   "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";
@@ -121,7 +123,10 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+<<<<<<< HEAD:server/server.js
+=======
 
+>>>>>>> 26d4f02e83f50745c31bacf25cd27a5bbea88308:root/backend/server/server.js
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Our app is running on port ${PORT}`);
