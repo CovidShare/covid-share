@@ -123,6 +123,10 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+<<<<<<< HEAD:server/server.js
+=======
+
+>>>>>>> 26d4f02e83f50745c31bacf25cd27a5bbea88308:root/backend/server/server.js
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Our app is running on port ${PORT}`);

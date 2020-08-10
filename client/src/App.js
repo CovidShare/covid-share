@@ -13,9 +13,11 @@ import Profile from "./components/Profile";
 import Prevention from "./components/Prevention";
 import Immunocompromised from "./components/Immunocompromised.js";
 import FeelingSick from "./components/FeelingSick.js";
+import Share from "./components/Share";
 
 import TwitterContainer from "./components/TwitterContainer.js";
 import ReactDOM from "react-dom";
+
 //import { AuthContext } from './context/AuthContext'
 
 function App() {
@@ -36,6 +38,13 @@ function App() {
         component={Profile}
       />
       <PrivateRoute path="/admin" privileges={["admin"]} component={Admin} />
+      <PrivateRoute
+        path="/profile"
+        privileges={["user", "admin"]}
+        component={Profile}
+      />
+      <PrivateRoute path="/admin" privileges={["admin"]} component={Admin} />
+      <Route exact path="/share" component={Share} />
     </Router>
   );
 }
