@@ -1,0 +1,94 @@
+.home {
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #dee3e3;
+}
+.preventionContainer {
+  display: flex;
+  background-color: #dee3e3;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Forum;
+  padding: 50px;
+  font-style: normal;
+  font-weight: normal;
+}
+.linkContainer{
+  display: flex;
+  background-color: #dee3e3;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Forum;
+  padding: 5px;
+  font-style: normal;
+  font-weight: normal;
+}
+.center {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logIn_logOut {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #a6a6a6;
+  color: white;
+  border: 2px solid #dee3e3;
+  padding: 14px 30px;
+  font-size: medium;
+  border-radius: 10px;
+}
+.linkButton {
+  background-color: #e3ecfa;
+  border: 2px solid #3158a0;
+  padding: 5px 15px;
+  font-size: large;
+  border-radius: 5px;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+  align-self: center;
+}
+.signUp {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 130px;
+
+  background-color: #405353;
+  color: white;
+  border: 2px solid #dee3e3;
+  padding: 14px 30px;
+  font-size: medium;
+  border-radius: 10px;
+}
+.footer {
+  color: white;
+  background-color: #a6a6a6;
+  padding-top: 55px;
+  padding-bottom: 55px;
+  position: relative;
+  bottom: 0;
+  align-self: flex-end;
+  text-align: center;
+  font-size: xx-large;
+}
+.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.col {
+  margin-top: 0px;
+  margin-bottom: -21px;
+}

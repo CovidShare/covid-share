@@ -7,6 +7,7 @@ import AuthService from "../services/AuthService";
 import { AuthContext } from "../context/AuthContext";
 import ImmunocompromisedLinks from "./ImmunocompromisedLinks.js";
 import { Nav } from "react-bootstrap";
+import "../styles/Prevention.css";
 
 const Immunocompromised = (props) => {
   const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(
@@ -54,21 +55,23 @@ const Immunocompromised = (props) => {
     );
   };
   return (
-    <div>
+    <div className="home">
       <a href="/home">
         <img src={logoN} alt="logo" class="center" />
       </a>
       {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
       <NavBar></NavBar>
+      <div className="preventionContainer">
       <h4>
-        Your Guide to the Latest COVID-19 Information for the immunocompromised
+        Your Guide to the Latest COVID-19 Information for the immunocompromised from the CDC
       </h4>
       <p>
         This page is dedicated to providing the latest information for those who
-        are Immunocompromised. This page updates automatically each time the CDC
+        are immunocompromised. This page updates automatically each time the CDC
         uploads a new article about Coronavirus prevention.
       </p>
       <ImmunocompromisedLinks></ImmunocompromisedLinks>
+      </div>
     </div>
   );
 };

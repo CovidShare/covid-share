@@ -7,7 +7,7 @@ import AuthService from "../services/AuthService";
 import { AuthContext } from "../context/AuthContext";
 import FeelingSickLinks from "./FeelingSickLinks.js";
 import { Nav } from "react-bootstrap";
-
+import "../styles/Prevention.css";
 const FeelingSick = (props) => {
   const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(
     AuthContext
@@ -54,13 +54,14 @@ const FeelingSick = (props) => {
     );
   };
   return (
-    <div>
+    <div className="home"> 
       <a href="/home">
         <img src={logoN} alt="logo" class="center" />
       </a>
       {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
       <NavBar></NavBar>
-      <h4>Your Guide to living with Coronavirus</h4>
+      <div className="preventionContainer">
+      <h4>Your Guide to living with COVID-19 from the CDC</h4>
       <p>
         This page is dedicated to providing the latest articles about the best
         actions to take when you are COVID-19 positive. This page updates
@@ -68,6 +69,7 @@ const FeelingSick = (props) => {
         prevention.
       </p>
       <FeelingSickLinks></FeelingSickLinks>
+      </div>
     </div>
   );
 };

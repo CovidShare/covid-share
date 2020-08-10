@@ -12,11 +12,14 @@ const NavBar = (props) => {
         variant="dark"
       >
         <ReactBootStrap.Navbar.Brand href="/home">
-          HOME
+          
         </ReactBootStrap.Navbar.Brand>
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto">
+          <ReactBootStrap.Nav.Link href="/home">
+              HOME
+            </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link href="/share">
               SHARE
             </ReactBootStrap.Nav.Link>

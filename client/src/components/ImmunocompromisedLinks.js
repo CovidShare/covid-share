@@ -6,7 +6,7 @@ import logoN from "../assets/LogoNew.png";
 import AuthService from "../services/AuthService";
 import { AuthContext } from "../context/AuthContext";
 import { Nav } from "react-bootstrap";
-
+import "../styles/Prevention.css";
 class ImmunocompromisedLinks extends React.Component {
   constructor(props) {
     super();
@@ -38,7 +38,7 @@ class ImmunocompromisedLinks extends React.Component {
       });
 
       let test = links.map((article) => (
-        <div>
+        <div className="linkContainer">
           <a href={article.link}>{article.title}</a>
         </div>
       ));
