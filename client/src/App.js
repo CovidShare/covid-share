@@ -10,10 +10,12 @@ import HomePage from "./components/HomePage.js";
 import Login from "./components/Login.js";
 import Admin from "./components/Admin";
 import Profile from "./components/Profile";
+import Share from "./components/Share";
 
 
 import TwitterContainer from "./components/TwitterContainer.js";
 import ReactDOM from "react-dom";
+
 //import { AuthContext } from './context/AuthContext'
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
       <UnPrivateRoute exact path="/register" component={Register} />
       <PrivateRoute path="/profile" privileges={["user", "admin"]} component={Profile}/>
       <PrivateRoute path="/admin" privileges={["admin"]} component={Admin}/>
+      <Route exact path="/share" component={Share}/>
     </Router>
   );
 }
