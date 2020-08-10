@@ -12,6 +12,7 @@ import axios from "axios";
 import cron from "node-cron";
 import cheerio from "cheerio";
 
+let __dirname = path.resolve();
 const apiKey =
   "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";
 
