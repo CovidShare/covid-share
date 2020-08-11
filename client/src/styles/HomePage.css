@@ -19,6 +19,7 @@
   border: 2px solid #dee3e3;
   padding: 14px 30px;
   font-size: medium;
+  font-family: Forum;
   border-radius: 10px;
 }
 .signUp {
@@ -32,6 +33,7 @@
   border: 2px solid #dee3e3;
   padding: 14px 30px;
   font-size: medium;
+  font-family: Forum;
   border-radius: 10px;
 }
 .footer {
@@ -43,6 +45,7 @@
   bottom: 0;
   align-self: flex-end;
   text-align: center;
+  font-family: Forum;
   font-size: xx-large;
 }
 .container-fluid {
@@ -50,6 +53,7 @@
   padding-left: 0px;
   margin-right: auto;
   margin-left: auto;
+  font-family: Forum;
 }
 .row {
   margin-right: 0px;

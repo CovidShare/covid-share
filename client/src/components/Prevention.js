@@ -54,25 +54,23 @@ const Prevention = (props) => {
     );
   };
   return (
-    <div className="home"> 
+    <div className="home">
       <a href="/home">
         <img src={logoN} alt="logo" class="center" />
       </a>
       {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
       <NavBar></NavBar>
-        <div className="preventionContainer">
-      <h4>Your Guide to the Latest COVID-19 Prevention Tips from the CDC</h4>
-      <p>
-        This page is dedicated to providing the latest articles about how to
-        protect yourself and others from getting the coronavirus. This page
-        updates automatically each time the CDC uploads a new article about
-        Coronavirus prevention.
-      </p>
-      
+      <div className="preventionContainer">
+        <h1>Your Guide to the Latest COVID-19 Prevention Tips from the CDC</h1>
+        <p>
+          This page is dedicated to providing the latest articles about how to
+          protect yourself and others from getting the coronavirus. This page
+          updates automatically each time the CDC uploads a new article about
+          Coronavirus prevention.
+        </p>
 
-      <PreventionLinks></PreventionLinks>
+        <PreventionLinks></PreventionLinks>
       </div>
-
     </div>
   );
 };

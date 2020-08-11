@@ -8,7 +8,7 @@ const LandingPage = (props) => {
   return (
     <div className="background">
       <img src={logo} alt="Logo" />
-      <p>
+      <p style={{ fontFamily: "Forum" }}>
         Welcome to CovidShare, your all in one COVID-19 information center!
         <br />
         This project was founded by University of Florida students seeking to

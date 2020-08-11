@@ -89,7 +89,6 @@ let getArticles = async () => {
         html: htmltest,
       };
 
-      /* Remove when all non valid emails are deleted
       sgMail
         .send(msg)
         .then(() => {
@@ -98,15 +97,15 @@ let getArticles = async () => {
         .catch((error) => {
           console.log(error.response.body);
           // console.log(error.response.body.errors[0].message)
-        });*/
+        });
     })
     .catch((error) => {
       console.log(error);
     });
 };
-//cron.schedule("45 23 * * 6", () =>{ Remove when ready for final deployment
-getArticles();
-//});
+cron.schedule("5 8 * * 0", () => {
+  getArticles();
+});
 const app = express(); // Init express app
 app.use(morgan("dev")); // Request log
 app.use(cookieParser());

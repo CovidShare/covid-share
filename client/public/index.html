@@ -11,8 +11,12 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
-   
-<script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY9hX-wQ9vfAgQXMvd45xFTC6yolmjQ2Q&libraries=places&callback=initMap"
+    ></script>
+    <script src="//tools.cdc.gov/TemplatePackage/contrib/widgets/tp-widget-external-loader.js"></script>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -29,13 +33,19 @@
     -->
 
     <!-- Above link *ADDED* to use bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
 
     <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" class="container"></div> <!-- *ADDED* the container class for bootstrap -->
+    <div id="root" class="container"></div>
+    <!-- *ADDED* the container class for bootstrap -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

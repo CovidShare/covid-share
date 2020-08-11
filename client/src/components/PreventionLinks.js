@@ -38,9 +38,9 @@ class PreventionLinks extends React.Component {
 
       let test = links.map((article) => (
         <div className="linkContainer">
-          
-          <a href={article.link}>{article.title}</a>
-          
+          <a style={{ fontSize: 18 }} href={article.link}>
+            {article.title}
+          </a>
         </div>
       ));
       this.setState({ articleList: test });

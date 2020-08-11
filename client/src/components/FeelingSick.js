@@ -54,21 +54,21 @@ const FeelingSick = (props) => {
     );
   };
   return (
-    <div className="home"> 
+    <div className="home">
       <a href="/home">
         <img src={logoN} alt="logo" class="center" />
       </a>
       {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
       <NavBar></NavBar>
       <div className="preventionContainer">
-      <h4>Your Guide to living with COVID-19 from the CDC</h4>
-      <p>
-        This page is dedicated to providing the latest articles about the best
-        actions to take when you are COVID-19 positive. This page updates
-        automatically each time the CDC uploads a new article about Coronavirus
-        prevention.
-      </p>
-      <FeelingSickLinks></FeelingSickLinks>
+        <h1>Your Guide to living with COVID-19 from the CDC</h1>
+        <p>
+          This page is dedicated to providing the latest articles about the best
+          actions to take when you are COVID-19 positive. This page updates
+          automatically each time the CDC uploads a new article about
+          Coronavirus prevention.
+        </p>
+        <FeelingSickLinks></FeelingSickLinks>
       </div>
     </div>
   );
