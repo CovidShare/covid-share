@@ -28,10 +28,13 @@ const NavBar = (props) => {
               title="LEARN"
               id="collasible-nav-dropdown"
             >
+              <ReactBootStrap.NavDropdown.Item href="/states">
+                US STATISTICS
+              </ReactBootStrap.NavDropdown.Item>
               <ReactBootStrap.NavDropdown.Item href="prevention">
                 PREVENTION
               </ReactBootStrap.NavDropdown.Item>
-              <ReactBootStrap.NavDropdown.Item href="#action/3.2">
+              <ReactBootStrap.NavDropdown.Item href="/testingcenters">
                 TESTING CENTERS
               </ReactBootStrap.NavDropdown.Item>
               <ReactBootStrap.NavDropdown.Item href="feelingsick">

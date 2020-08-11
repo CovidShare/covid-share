@@ -14,6 +14,8 @@ import Prevention from "./components/Prevention";
 import Immunocompromised from "./components/Immunocompromised.js";
 import FeelingSick from "./components/FeelingSick.js";
 import Share from "./components/Share";
+import StatesMap from "./components/StatesMap.js";
+import TestingCenters from "./components/TestingCenters.js";
 
 import TwitterContainer from "./components/TwitterContainer.js";
 import ReactDOM from "react-dom";
@@ -28,6 +30,8 @@ function App() {
       <Route exact path="/prevention" component={Prevention} />
       <Route exact path="/immunocompromised" component={Immunocompromised} />
       <Route exact path="/feelingsick" component={FeelingSick} />
+      <Route exact path="/states" component={StatesMap} />
+      <Route exact path="/testingcenters" component={TestingCenters} />
 
       <Route exact path="/donate" component={DonatePage} />
       <UnPrivateRoute exact path="/login" component={Login} />
