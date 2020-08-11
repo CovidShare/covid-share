@@ -70,6 +70,9 @@ const FeelingSick = (props) => {
         </p>
         <FeelingSickLinks></FeelingSickLinks>
       </div>
+      <div className="footer">
+        <p>COVIDSHARE</p>
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@
   align-items: center;
   min-height: 100vh;
   min-width: 100vw;
+  font-family: Forum;
   background-color: #dee3e3;
 }
 .preventionContainer {
@@ -15,8 +16,9 @@
   padding: 50px;
   font-style: normal;
   font-weight: normal;
+  font-size: x-large;
 }
-.linkContainer{
+.linkContainer {
   display: flex;
   background-color: #dee3e3;
   align-items: center;
@@ -35,6 +37,7 @@
 .logIn_logOut {
   position: absolute;
   top: 0;
+  font-family: Forum;
   right: 0;
   background-color: #a6a6a6;
   color: white;
@@ -74,6 +77,7 @@
   padding-bottom: 55px;
   position: relative;
   bottom: 0;
+  font-family: Forum;
   align-self: flex-end;
   text-align: center;
   font-size: xx-large;

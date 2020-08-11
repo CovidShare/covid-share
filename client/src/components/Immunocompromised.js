@@ -64,7 +64,7 @@ const Immunocompromised = (props) => {
       <div className="preventionContainer">
         <h3>
           Your Guide to the Latest COVID-19 Information for the
-          immunocompromised from the CDC
+          Immunocompromised from the CDC
         </h3>
         <p>
           This page is dedicated to providing the latest information for those
@@ -72,6 +72,9 @@ const Immunocompromised = (props) => {
           the CDC uploads a new article about Coronavirus prevention.
         </p>
         <ImmunocompromisedLinks></ImmunocompromisedLinks>
+      </div>
+      <div className="footer">
+        <p>COVIDSHARE</p>
       </div>
     </div>
   );

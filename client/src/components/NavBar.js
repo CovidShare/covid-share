@@ -28,7 +28,7 @@ const NavBar = (props) => {
                 US STATISTICS
               </ReactBootStrap.NavDropdown.Item>
               <ReactBootStrap.NavDropdown.Item href="prevention">
-                PREVENTION
+                PREVENTION  
               </ReactBootStrap.NavDropdown.Item>
               <ReactBootStrap.NavDropdown.Item href="/testingcenters">
                 TESTING CENTERS
