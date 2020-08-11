@@ -80,7 +80,7 @@ const TestingCenters = (props) => {
             lng={data.long}
             style={{
                 color:"red",
-                backgroundColor: "#FFF",
+                backgroundColor: "#000",
                 height: "25px",
                 width: "35px",
                 textAlign: "center",
