@@ -15,6 +15,7 @@ import { Container, Row, Col } from "react-bootstrap";
 const TestingCenters = (props) => {
     const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext);
     const [centers, setCenters] = useState([]);
+    const [cards, setCards] = useState([]);
 
     const onClickLogoutHandler = () => {
         AuthService.logout().then(data => {
@@ -59,18 +60,39 @@ const TestingCenters = (props) => {
       useEffect(() => {
         axios
             .all([
+                axios.get('./testinglocations.json'),
                 axios.get("https://covid-19-testing.github.io/locations/florida/complete.json"),
             ])
             .then((responseArr) => {
                 setCenters(responseArr[0].data);
-                console.log(responseArr[0].data);
+                //console.log(responseArr[0].data)
+                setCards(responseArr[1].data);
+
             })
             .catch(err => {
                 console.log(err);
             })
     }, []);
 
-    const centersList = centers.map(data => {
+      const centersLocation = centers.map((data, i) => {
+        return <div
+            lat={data.lat}
+            lng={data.long}
+            style={{
+                color:"red",
+                backgroundColor: "#FFF",
+                height: "25px",
+                width: "35px",
+                textAlign: "center",
+                borderRadius: "20%",
+            }}>
+                {data.alternate_name}
+                <br />
+                {/* <NumberFormat value={data.confirmed} displayType={'text'} thousandSeparator={true}/> */}
+        </div>;
+    });
+
+    const centersList = cards.map(data => {
         //console.log(data.physical_address + " ");
         return(
             <CardDeck>
@@ -116,7 +138,6 @@ const TestingCenters = (props) => {
         );
     });
 
-
     return (
         <div className="home">
             <img src={logoN} alt="logo" class="center" />
@@ -129,16 +150,33 @@ const TestingCenters = (props) => {
             <Container fluid>
                 <h2 style={{textAlign: "center"}}>Florida Covid-19 Testing Centers</h2>
                 <br></br>
-                {centersList}
+                {/* {centersList} */}
+                  {/* {initMap()}
+                  {createMarker(request)} */}
+                  <Row>
+                    <Col>
+                  <div style={{ height: '100vh', width: '100%' }}>
+                  <GoogleMapReact
+                  bootstrapURLKeys={{ key: "AIzaSyCY9hX-wQ9vfAgQXMvd45xFTC6yolmjQ2Q" }}
+                  defaultCenter={{
+                      lat: 26,
+                      lng: -80}}
+                  defaultZoom={8}>
+                    {centersLocation}
+                  </GoogleMapReact>
+                  </div>
+                  </Col>
+                  <Col xs="auto">
+                    {centersList}
+                  </Col>
+                  </Row>
             </Container>
             </div>
     <br></br>
     <div className="footer">
         <p>COVIDSHARE</p>
       </div>
-        
     </div>
-        
     );
 };
 
