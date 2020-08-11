@@ -62,9 +62,9 @@ const Immunocompromised = (props) => {
       {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
       <NavBar></NavBar>
       <div className="preventionContainer">
-      <h4>
-        Your Guide to the Latest COVID-19 Information for the immunocompromised from the CDC
-      </h4>
+      <h2>
+        Your Guide to the Latest COVID-19 Information for the Immunocompromised from the CDC
+      </h2>
       <p>
         This page is dedicated to providing the latest information for those who
         are immunocompromised. This page updates automatically each time the CDC

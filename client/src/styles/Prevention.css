@@ -11,10 +11,11 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  font-family: Forum;
+
   padding: 50px;
   font-style: normal;
   font-weight: normal;
+  font-size: x-large;
 }
 .linkContainer{
   display: flex;

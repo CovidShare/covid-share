@@ -61,7 +61,7 @@ const Prevention = (props) => {
       {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
       <NavBar></NavBar>
         <div className="preventionContainer">
-      <h4>Your Guide to the Latest COVID-19 Prevention Tips from the CDC</h4>
+      <h2>Your Guide to the Latest COVID-19 Prevention Tips from the CDC</h2>
       <p>
         This page is dedicated to providing the latest articles about how to
         protect yourself and others from getting the coronavirus. This page

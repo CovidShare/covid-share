@@ -61,7 +61,7 @@ const FeelingSick = (props) => {
       {!isAuthenticated ? unauthenticatedUser() : authenticatedUser()}
       <NavBar></NavBar>
       <div className="preventionContainer">
-      <h4>Your Guide to living with COVID-19 from the CDC</h4>
+      <h2>Your Guide to Living with COVID-19 from the CDC</h2>
       <p>
         This page is dedicated to providing the latest articles about the best
         actions to take when you are COVID-19 positive. This page updates
