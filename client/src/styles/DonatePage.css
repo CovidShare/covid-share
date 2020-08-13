@@ -77,3 +77,16 @@
   right: 0px;
   top: 705px;
 }
+.subheading {
+  margin: 25px 100px;
+  text-align: center;
+}
+.orgs {
+  text-align: justify;
+  border: 8px ridge #1678A4;
+  background-color: #e6ffe6;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
